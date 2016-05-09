@@ -1,7 +1,21 @@
+<!--
+Creator: Ilias Tsangaris
+Market: SF
+-->
+
+![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
+
 # Callbacks
 
-### Objectives
-*After this lesson, students will be able to:*
+## Why is this important?
+<!-- framing the "why" in big-picture/real world examples -->
+*This workshop is important because:*
+
+Using callback functions is an effective way to write declarative, functional JavaScript. JavaScript was built to deal with asynchronous events; callbacks help appropriately time and coordinate our program.
+
+## What are the objectives?
+<!-- specific/measurable goal for students to achieve -->
+*After this workshop, developers will be able to:*
 
 - Explain the concept of a 'callback' and how we can pass functions as arguments to other functions
 - Describe the difference between asynchronous and synchronous program execution, and why callbacks are important to asynchronous program flow
@@ -9,14 +23,15 @@
 - Pass an anonymous function as a callback to another function
 
 
-### Preparation
-*Before this lesson, students should already be able to:*
+## Where should we be now?
+<!-- call out the skills that are prerequisites -->
+*Before this workshop, developers should already be able to:*
 
 - Write and call functions in javascript
 - Explain what an anonymous function is in javascript
 
 
-## Callbacks - Intro (5 mins)
+## Callbacks - Intro
 
 Callback functions are derived from a programming paradigm known as **functional programming**. At a fundamental level, functional programming specifies the use of functions as arguments. Functional programming was — and still is, though to a much lesser extent, today — seen as an esoteric technique of specially trained master programmers.
 
@@ -24,7 +39,7 @@ Callback functions are derived from a programming paradigm known as **functional
 
 A callback function, also known as a higher-order function, is a function that is passed to another function (let’s call this other function “otherFunction”) as a parameter, and the callback function is called (or executed) inside the otherFunction. A callback function is essentially a pattern (an established solution to a common problem), and therefore, the use of a callback function is also known as a callback pattern.
 
-## Examples of Callbacks - Demo (15 mins)
+## Examples of Callbacks
 
 Let's walk through a couple of examples of code that utilize callbacks:
 
@@ -60,7 +75,7 @@ friends.forEach(loopyName);
 ```
 
 
-## How Callback Functions Work? Discussion (10 mins)
+## How Callback Functions Work?
 
 We can pass functions around like variables and return them in functions and use them in other functions.  When we pass a callback function as an argument to another function, we are only **passing the function definition**.
 
@@ -77,7 +92,7 @@ This means the callback is a closure.
 Closures have access to the containing function’s scope, so the callback function can access the containing functions’ variables, and even the variables from the global scope.
 
 
-## Named Functions as Callbacks - Codealong (15 mins)
+## Named Functions as Callbacks
 
 It is a common pattern to use an anonymous function as a callback. However, you can use a named function, too!
 
@@ -125,7 +140,7 @@ if (typeof callback === "function") {
 }
 ```
 
-## `this` and Callbacks Problems - Codealong (20 mins)
+## `this` and Callbacks Problems
 
 When the callback function is a method that uses the `this` object, we have to modify how we execute the callback function to preserve the `this` object context.
 
@@ -149,14 +164,12 @@ friends.forEach(function(friend, index) {
 }.bind(friends));
 ```
 
-Yay!
-
-## Independent Practice (20 mins)
+## Independent Practice
 
 > ***Note:*** _This can be a pair programming activity or done independently._
 
 Open the [starter-code](starter-code) and try to work through both exercises with a partner.  Do your best!
 
-## Conclusion (5 mins)
+## Closing Thoughts
 - Describe callbacks, at a high level.
 - Explain why you don't pass callbacks as parameters with parenthesis.
