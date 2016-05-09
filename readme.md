@@ -30,7 +30,7 @@ Using callback functions is an effective way to write declarative, functional Ja
 - Explain what a first-order function is
 - Use a `for` loop
 
-## Examples of Callbacks
+## A Callback
 
 Let's walk through a couple of examples of code that utilize callbacks:
 
@@ -44,7 +44,7 @@ element.addEventListener("click", function(){
 ```
 *Discuss the above example with your neighbor.*
 
-## Example of an Iterator
+## An Iterator
 
 ```javascript
 var potatoes = ["Yukon Gold", "Russet", "Yellow Finn", "Kestrel"];
@@ -55,9 +55,9 @@ for(var i=0; i < potatoes.length; i++){
 
 *Discuss the above example with your neighbor.*
 
-###[forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ForEach)
+## [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ForEach)
 
-Let's combine our knowledge of callbacks & iterators to write better, more declarative code.
+Let's combine our knowledge of **callbacks** & **iterators** to write better, more *declarative* code.
 
 ```javascript
 var fruits = ["Apple", "Banana", "Cherry", "Durian", "Elderberry",
@@ -81,7 +81,7 @@ fruits.forEach(function (value, index) {
 //    "Fig", "Guava", "Huckleberry", "Ice plant", "Jackfruit"];
 ```
 
-### [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Map)
+## [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Map)
 Similar to `forEach()`, `map()` traverses an array; this method, however, performs whatever callback function you pass into it on each element.  It outputs the results
 of the operation on each element as a new array.
 
@@ -89,7 +89,7 @@ Often we want to do more than just perform an action, like console.log(), on eve
 
 #### Example: Double every number
 
-```JavaScript
+```javascript
 var numbers = [1, 4, 9];
 var doubles = numbers.map(function doubler(num) {
   return num * 2;
@@ -131,7 +131,29 @@ numbers.map(function square(element) {
 //=> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 ```
 
-#### Exercise - [Map](exercises.md#challenge-1-map)
+#### Challenge: Etsy Merchant
+
+<details>
+<summary>
+Elaine the Etsy Merchant thinks her prices are scaring off customers. Subtracting one penny from every price might help!
+
+```javascript
+var prices = [3.00, 4.00, 10.00, 2.25, 3.01];
+// create a new array with the reduced prices...
+```
+</summary>
+
+```javascript
+var prices = [3.00,4.00,10.00,2.25,3.01];
+var reducedPrices = prices.map(function(price) {
+  return price - 0.01;
+});
+```
+
+</details>
+
+
+
 
 ### [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter)
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
@@ -173,37 +195,40 @@ even = numbers.filter(function filterEvens(num) {
   return isEven && greaterThanFive;
 });
 //=> [6, 8, 10]
-
 ```
 
-#### Exercise - [Filter](exercises.md#challenge-2-filter)
+#### Challenge: Birthdays
+
+<details>
+<summary>
+Is there an interesting trend in birthdays?  Do people tend to be born more on even-numbered dates or odd-numbered dates? If so, what's the ratio? In class, let's take a quick poll of the days of the month people were born on. This is a great chance to do some serious science!
+
+```javascript
+var exampleBdays = [1, 1, 2, 3, 3, 3, 5, 5, 6, 6, 8, 8, 10, 10, 12, 12, 13, 13, 15, 17, 17, 18, 20, 20, 26, 31];
+// gather an array of all the even birthdays...
+```
+</summary>
+
+```javascript
+var exampleBdays = [1, 1, 2, 3, 3, 3, 5, 5, 6, 6, 8, 8, 10, 10, 12, 12, 13, 13, 15, 17, 17, 18, 20, 20, 26, 31];
+var birthDateEvens = exampleBdays.filter(function(birthday) {
+  return birthday % 2 === 0 ? birthday : false;
+});
+```
+</details>
 
 ## [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
 
-#### Example: Return the first letter of every word, as a single string
-
-```javascript
-avgLen = fruits.reduce(function concatFirstLetter(previous, current, index) {
-    if (index == 1) {
-      current = current[0];
-    }
-  return previous + current[0];
-});
-//=> "ABCDEFGHIJ"
-
-```
-
 #### Example: Find the sum of all of the numbers in an array
 
 ```javascript
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-sum = numbers.reduce(function add(previous, current) {
+var sum = numbers.reduce(function add(previous, current) {
   return current + previous;
 });
 
-sum
 //=> 55
 
 ```
@@ -213,13 +238,12 @@ sum
 There is another way to call this function and specify an initial starting point. 
 
 ```javascript
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-sum = numbers.reduce(function add(previous, current) {
+var sum = numbers.reduce(function add(previous, current) {
   return current + previous;
 }, 100);
 
-sum
 //=> 155
 ```
 
@@ -227,11 +251,25 @@ In the above example, the first time the callback is called it receives `100` an
 
 > **Note**: We set the starting value to `100` by passing in an optional second argument to reduce. 
 
-#### Exercise - [Reduce](exercises.md#challenge-3-reduce)
+#### Challenge: Dog Walking
 
-## Exercises
+<details>
+<summary>
+Boberto has a lucrative dog walking business. He's made that money this summer. How much did he make?
 
-Before we move on let's finish the [Array Manipulation Exercises](exercises.md) for `map`, `filter`, and `reduce`.
+```javascript
+var earnings = [20, 25, 60, 20, 85, 20];
+// find the total of his earnings...
+```
+</summary>
+
+```javascript
+var earnings = [20, 25, 60, 20, 85, 20];
+var total = earnings.reduce(function(previous, current) {
+  return previous + current;
+});
+```
+</details>
 
 
 # Building Iterators Lab
@@ -250,36 +288,29 @@ Let's think about `forEach` again. What's happening behind the scenes?
 Let's check:
 
 ```javascript
-[0, 100, 200, 300].forEach(function printer(element, index, array) {
-  console.log(element, index, array);
+function print(item) {
+  console.log(item);
+}
+
+[0, 100, 200, 300].forEach(function(number) {
+  print(number);
 });
 ```
 
+<details>
+<summary>Given the above, how would you build a function that mimics `forEach` yourself? Call it `myForEach`.</summary>
 
-<details><summary>
-**What are our inputs?** (Click Here)
-</summary>
-Inputs to `forEach`:
-* 1. `callback` (a function) - e.g. `printer`
-* 2. `thisArg` (an optional argument) - not used
-
-Inputs to the callback:
-* 1. `currentValue` - e.g. `300`
-* 2. `index` - e.g. `3`
-* 3. `array` - e.g. `[0, 100, 200, 300]`
-</details>
-  
-<details><summary>
-**What is our output?** (Click Here)
-</summary>
-Output from calling `forEach`:
-* `undefined` - You can confirm this in your console.
-
-Output from the callback:
-* We're not explicitily returning anything in this case, but we do `console.log` every time the callback is called (every loop).
+```javascript
+function myForEach(collection, callback) {
+  for(var i = 0; i < collection.length; i++) {
+    callback(collection[i]);
+  }
+}
+// the below should have the same result as the above
+myForEach([0, 100, 200, 300], print)
+```
 </details>
 
-Given the above, how would you build `forEach` yourself?
 
 ## Exercise: Build your own iterators
 
