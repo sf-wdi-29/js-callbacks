@@ -284,4 +284,4 @@ Given the above, how would you build `forEach` yourself?
 
 ## Exercise: Build your own iterators
 
-We are going to [**implement our own iterators**](https://github.com/sf-wdi-29/js-builiding-iterators-lab), from scratch. 
+We are going to [**implement our own iterators**](https://github.com/sf-wdi-29/js-building-iterators-lab), from scratch. 
