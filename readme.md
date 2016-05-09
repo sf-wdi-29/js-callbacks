@@ -1,5 +1,4 @@
 <!--
-Creator: Ilias Tsangaris
 Market: SF
 -->
 
