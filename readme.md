@@ -27,7 +27,7 @@ Using callback functions is an effective way to write declarative, functional Ja
 *Before this workshop, developers should already be able to:*
 
 - Write and call functions in JavaScript
-- Explain what a first-order function is
+- Explain what a first-class or higher-order function is
 - Use a `for` loop
 
 ## A Callback
@@ -153,8 +153,6 @@ var reducedPrices = prices.map(function(price) {
 </details>
 
 
-
-
 ### [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter)
 With the `filter()` method you can create a *second* array filled with elements that pass certain criteria that you designate.  This is great for creating a sub array of fruits that start with vowels, a list of even numbers from a bigger list, and so on.  
   *It's important to remember that a filter method on an array requires a `boolean` return value for the callback function you pass as an argument.*
@@ -218,7 +216,7 @@ var birthDateEvens = exampleBdays.filter(function(birthday) {
 </details>
 
 ## [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single element.
+The `reduce()` method is designed to create one single object that is the result of an action performed among all elements in an array.  It essentially 'reduces' the values of an array into one single value.
 
 #### Example: Find the sum of all of the numbers in an array
 
@@ -272,6 +270,8 @@ var total = earnings.reduce(function(previous, current) {
 </details>
 
 
+`Array.reduce()` isn't just good for combining numeric values. It also works when you want to flatten a matrix (an Array of Arrays). Perhaps the most useful implementation is if you have an array of objects and you want to gather all the values of one property, you can chain `Array.map()` and then `Array.reduce()` together. [Here's a good article with several clear examples for your consideration.](http://adripofjavascript.com/blog/drips/boiling-down-arrays-with-array-reduce.html)
+
 # Building Iterators Lab
 
 #### How does `forEach` work?
@@ -314,4 +314,4 @@ myForEach([0, 100, 200, 300], print)
 
 ## Exercise: Build your own iterators
 
-We are going to [**implement our own iterators**](https://github.com/sf-wdi-29/js-building-iterators-lab), from scratch. 
+We are going to [**implement our own iterators**](https://github.com/sf-wdi-gaia/js-building-iterators-lab), from scratch. 
