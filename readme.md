@@ -298,16 +298,16 @@ function print(item) {
 ```
 
 <details>
-<summary>Given the above, how would you build a function that mimics `forEach` yourself? Call it `myForEach`.</summary>
+<summary>Given the above, how would you build a function that mimics `forEach` yourself? Call it `myEach`.</summary>
 
 ```javascript
-function myForEach(collection, callback) {
+function myEach(collection, callback) {
   for(var i = 0; i < collection.length; i++) {
     callback(collection[i]);
   }
 }
 // the below should have the same result as the above
-myForEach([0, 100, 200, 300], print)
+myEach([0, 100, 200, 300], print)
 ```
 </details>
 
